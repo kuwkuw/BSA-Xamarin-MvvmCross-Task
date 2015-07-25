@@ -45,13 +45,14 @@ namespace Books.Core.ViewModels
                 // TODO create a command that will navigate to details screen
                 // it should be invoked on list item click
                 // it should accept book id or url so that details screen can fetch additional info
-                return null;
+                _goToDetailsCommand = _goToDetailsCommand ?? new MvxCommand<BookSearchItem>((item) => ShowDetails(item.id));
+                return _goToDetailsCommand;
             }
         }
 
-        private void showDetails(string url)
+        private void ShowDetails(string url)
         {
-            ShowViewModel<DetailsViewModel>(); // pass "reference to the book" here
+            ShowViewModel<DetailsViewModel>(new { url = url }); // pass "reference to the book" here
         }
     }
 }

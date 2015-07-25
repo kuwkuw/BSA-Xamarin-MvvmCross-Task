@@ -12,7 +12,6 @@
     <Mvx.MvxListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        local:MvxBind="ItemsSource Results" 
-        local:MvxItemTemplate="@layout/item_book"
-        />
+        local:MvxBind="ItemsSource Results; ItemClick GoToDetailsCommand"
+        local:MvxItemTemplate="@layout/item_book" />
 </LinearLayout>

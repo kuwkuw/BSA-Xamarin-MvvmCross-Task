@@ -17,6 +17,13 @@ namespace Books.Core.ViewModels
             _books = books;
         }
 
+        public void Init(string url) {
+            _books.StartSearchAsync(url, result => VolumeInfo = result.items[0].volumeInfo ,
+                error => { });
+        }
+
+
+
         protected override void InitFromBundle(IMvxBundle parameters)
         {
             // TODO get and cast incomming bundle to the parameter passed from FirstViewModel
@@ -24,6 +31,16 @@ namespace Books.Core.ViewModels
             // https://github.com/MvvmCross/MvvmCross/wiki/ViewModel--to-ViewModel-navigation
 
             base.InitFromBundle(parameters);
+
         }
+
+        private VolumeInfo _volumeInfo;
+
+        public VolumeInfo VolumeInfo
+        {
+            get { return _volumeInfo; }
+            set { _volumeInfo = value; RaisePropertyChanged(() => VolumeInfo); }
+        }
+
     }
 }

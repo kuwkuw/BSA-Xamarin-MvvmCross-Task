@@ -12,7 +12,8 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True" d:DataContext="{d:DesignData /SampleData/FirstViewModelSampleData.xaml, Instance={x:Null}}">
+    shell:SystemTray.IsVisible="True" 
+    d:DataContext="{d:DesignData/SampleData/FirstViewModelSampleData.xaml, Instance={x:Null}}">
 	<views:MvxPhonePage.Resources>
 		<DataTemplate x:Key="BookItemTemplate">
 			<Grid Margin="6">
@@ -50,8 +51,9 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 			<TextBox Grid.Row="0" Text="{Binding SearchTerm, Mode=TwoWay}" />
-            <ListBox Grid.Row="1" ItemsSource="{Binding Results}" ItemTemplate="{StaticResource BookItemTemplate}"
-                     ></ListBox>
+            <ListBox Grid.Row="1" ItemsSource="{Binding Results}" ItemTemplate="{StaticResource BookItemTemplate}">
+                
+            </ListBox>
         </Grid>
     </Grid>
 
